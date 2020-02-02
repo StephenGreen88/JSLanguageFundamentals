@@ -1,40 +1,33 @@
-let val;
+// DOM SELECTORS <-- document object methods (allows up to pull things from the DOM)
 
-val = document;
-val = document.all;
-val = document.all[2];
-val = document.all.length;
-val = document.head;
-val = document.body;
-val = document.doctype;
-val = document.domain;
-val = document.URL;
-val = document.characterSet;
-val = document.contentType;
+// document.getElementById() <-- This is a single selector
+console.log(document.getElementById('task-title'));
 
-val = document.forms;
-val = document.forms[0];
-val = document.forms[0].id;
-val = document.forms[0].method;
-val = document.forms[0].action;
+// Get things from the element
+console.log(document.getElementById('task-title').id);
 
-val = document.links;
-val = document.links[0];
-val = document.links[0].id;
-val = document.links[0].className;
-val = document.links[0].classList[0];
+const taskTitle = document.getElementById('task-title'); // <-- Saving the getElementByID selector to a variable to shorten code
 
-val = document.images;
+// Change styling <-- you can change the style of elements using JS. Use this more for dynamic styling (hover, etc)
+taskTitle.style.background ='#333';
+taskTitle.style.color ='#fff';
+taskTitle.style.padding ='5px';
+// document.getElementById('task-title').style.display ='none'; // <-- This will make things disappear
 
-val = document.scripts;
-val = document.scripts[2].getAttribute('src');
+// Change Content
+taskTitle.textContent = 'Task List';
+taskTitle.innerText = 'My Tasks';
+taskTitle.innerHTML = "<span style='color: red'>Task List</span>";
 
-let scripts = document.scripts;
+// document.querySelector() <-- This is a single selector
+console.log(document.querySelector('#task-title'));
+console.log(document.querySelector('.card-title'));
+console.log(document.querySelector('h5')); // <-- This would only grab the first h5 element
 
-let scriptsArr = Array.from(scripts);
+document.querySelector('li').style.color = 'red';
+document.querySelector('ul li').style.color = 'blue';
 
-scriptsArr.forEach(function(script) {
-  console.log(script.getAttribute('src'));
-});
-
-console.log(val);
+document.querySelector('li:last-child').style.color = 'red';
+document.querySelector('li:nth-child(3)').style.color = 'pink';
+document.querySelector('li:nth-child(4)').textContent = 'Hello, world!';
+document.querySelector('li:nth-child(odd)').style.background = '#ccc';
